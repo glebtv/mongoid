@@ -51,7 +51,8 @@ module Mongoid
             client = Clients.with_name(self.class.client_name)
             client.use(self.class.database_name)
           end
-          client.with(persistence_options.reject{ |k, v| k == :collection || k == :client })
+          # client.with(persistence_options.reject{ |k, v| k == :collection || k == :client })
+          client
         end
       end
       alias :mongo_session :mongo_client
